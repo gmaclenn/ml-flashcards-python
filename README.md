@@ -18,6 +18,6 @@ consumer_secret = "ENTER CONSUMER SECRET KEY HERE"
 
 After that you should be able to run the script and add any new flashcards created to the flashcards folder.
 
-_Note that the twitter search API as used in this script does not include ALL tweets, but rather only recent tweets._
+_Note that the twitter search API as used in this script does not include ALL tweets, only recent tweets. I have included previous tweets manually to have them all in one place however the script will only retrieve new tweets._
 
 

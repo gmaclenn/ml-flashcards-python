@@ -27,7 +27,7 @@ for i in range(len(ml_flashcards_json)):
     json = txt._json
     title = re.sub("#\S*", "", str(json['text']))  # removes hashtag
     title = re.sub("https\S*", "", title)  # removes url
-    title = str(title.strip())  # strips spacing away
+    title = str(title.strip())
     media_url = json['entities']['media'][0]['media_url']
     media_urls.append(media_url)
     titles.append(title)

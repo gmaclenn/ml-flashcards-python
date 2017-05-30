@@ -14,7 +14,7 @@ auth = tweepy.OAuthHandler(consumer_key=consumer_key,
 api = tweepy.API(auth)
 
 # query parameter excludes the intentional photo to dirty the data
-params = {'q': '-"are%20-being%20-made"%20-"your%20-data%20-dirty"%20%23machinelearningflashcards',
+params = {'q': '-"are%20-being%20-made"%20-"your%20-data%20-dirty"%20%23machinelearningflashcards-filter:retweets',
           'from': 'chrisalbon',
           'since': '2017-04-01', }
 

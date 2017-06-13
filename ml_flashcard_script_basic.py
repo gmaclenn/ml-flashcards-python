@@ -30,14 +30,14 @@ for i in range(len(ml_flashcards_json)):
     title = re.sub("#\S*", "", str(json['text']))  # removes hashtag
     title = re.sub("https\S*", "", title)  # removes url
     title = str(title.strip())
-    try:
-        media_url = json.get('entities',).get('media',)[0].get('media_url',)
+    try: # KeyError is raised when there is no image within the tweet
+        media_url = json['entities']['media'][0]['media_url']
         media_urls.append(media_url)
         titles.append(title)
-    except:
+    except KeyError:
         counter = 0
         counter += 1
-        print("{} tweet was not processed".format(counter))
+        print("{} tweet was not processed due to a KeyError".format(counter))
 
 # change directory to flashcards folder
 current_dirctory = os.getcwd()

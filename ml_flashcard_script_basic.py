@@ -24,7 +24,11 @@ ml_flashcards_json = api.search(**params)
 
 media_urls = []
 titles = []
-for i in range(len(ml_flashcards_json)):
+error_counter = 0
+total_tweets = len(ml_flashcards_json)
+successful_tweets = total_tweets - error_counter
+
+for i in range(total_tweets):
     txt = ml_flashcards_json[i]
     json = txt._json
     title = re.sub("#\S*", "", str(json['text']))  # removes hashtag
@@ -35,9 +39,16 @@ for i in range(len(ml_flashcards_json)):
         media_urls.append(media_url)
         titles.append(title)
     except KeyError:
-        counter = 0
-        counter += 1
-        print("{} tweet was not processed due to a KeyError".format(counter))
+        error_counter += 1
+
+if error_counter == 0:
+    print("{} tweets were processed successfully".format(successful_tweets))
+elif error_counter == 1:
+    print("{} tweets were processed successfully".format(successful_tweets))
+    print("{} tweet was not processed due to a KeyError".format(error_counter))
+else:
+    print("{} tweets were processed successfully".format(successful_tweets))
+    print("{} tweets were not processed due to a KeyError".format(error_counter))
 
 # change directory to flashcards folder
 current_dirctory = os.getcwd()

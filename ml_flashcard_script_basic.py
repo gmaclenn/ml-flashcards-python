@@ -10,16 +10,15 @@ import os
 from twitter_keys import consumer_key, consumer_secret
 
 # Create the OAuthHandler
-auth = tweepy.OAuthHandler(consumer_key=consumer_key,
-                           consumer_secret=consumer_secret)
+auth = tweepy.OAuthHandler(consumer_key=consumer_key, consumer_secret=consumer_secret)
 # Construct the API instance
 api = tweepy.API(auth)
 
-# query parameter excludes the intentional photo to dirty the data
-# noinspection SpellCheckingInspection,SpellCheckingInspection,SpellCheckingInspection
-params = {'q': 'machinelearningflashcards.com-filter:retweets',
-          'from': 'chrisalbon',
-          'since': '2017-04-01', }
+params = {
+    'q': 'machinelearningflashcards.com-filter:retweets',
+    'from': 'chrisalbon',
+    'since': '2017-04-01',
+}
 
 ml_flashcards_json = api.search(**params)
 
@@ -32,7 +31,6 @@ successful_tweets = total_tweets - error_counter
 for i in range(total_tweets):
     txt = ml_flashcards_json[i]
     json = txt._json
-    # noinspection SpellCheckingInspection
     title = re.sub("#\S*", "", str(json['text']))  # removes hashtag
     title = re.sub("https\S*", "", title)  # removes url
     title = str(title.strip())
@@ -53,7 +51,6 @@ else:
     print("{} tweets were not processed due to a KeyError".format(error_counter))
 
 # change directory to flashcards folder
-# noinspection SpellCheckingInspection
 current_dirctory = os.getcwd()
 os.chdir(current_dirctory + "/flashcards")
 

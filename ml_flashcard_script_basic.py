@@ -17,7 +17,7 @@ api = tweepy.API(auth)
 params = {
     'q': 'machinelearningflashcards.com-filter:retweets',
     'from': 'chrisalbon',
-    'since': '2017-04-01',
+    'since': '2018-04-01',
 }
 
 ml_flashcards_json = api.search(**params)

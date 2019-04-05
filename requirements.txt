@@ -41,7 +41,7 @@ python-dateutil==2.7.3
 python-jsonrpc-server==0.0.2
 python-language-server==0.21.2
 pytz==2018.5
-requests==2.13.0
+requests==2.21.0
 requests-oauthlib==1.0.0
 rope==0.11.0
 six==1.11.0
